@@ -19,10 +19,41 @@ body {
 }
 
 .container {
-  //border: 1px solid red;
+  margin: auto;
 
   @include for-phone-only {
     width: 87.2%;
-    margin: auto;
+  }
+
+  @include for-tablet-portrait-up {
+    width: 89.7135%;
+  }
+}
+
+// Links
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: $grey;
+}
+
+a:hover {
+  color: $darkGreyBlue;
+}
+
+// Visibility
+
+.hide-for-mobile {
+
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.hide-for-tablet {
+
+  @include for-tablet-portrait-up {
+    display: none;
   }
 }
