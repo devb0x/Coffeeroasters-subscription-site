@@ -32,10 +32,27 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: #848990;
+  transition: all 0.3s ease-in-out;
 }
 
 a:hover {
   color: #343e4c;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  color: #fefcf6;
+  font-family: "Fraunces", serif;
+  font-size: 1.125rem;
+  background-color: #0e8684;
+  border-radius: 6px;
+  padding: 15px 31px 16px;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: #65d2d0;
 }
 
 @media (max-width: 37.4375em) {
@@ -80,6 +97,86 @@ a:hover {
   height: 15px;
   margin: auto 0;
   background-image: url("./../assets/shared/mobile/icon-hamburger.svg");
+}
+
+.hero {
+  display: flex;
+  margin-top: 2.5rem;
+  height: 31.25rem;
+  color: #fefcf6;
+  text-align: center;
+  background-image: url("./../assets/home/mobile/image-hero-coffeepress.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+@media (min-width: 37.5em) {
+  .hero {
+    background-image: url("./../assets/home/tablet/image-hero-coffeepress.jpg");
+  }
+}
+@media (min-width: 75em) {
+  .hero {
+    height: 37.5rem;
+    background-image: url("./../assets/home/desktop/image-hero-coffeepress.jpg");
+  }
+}
+.hero-wrapper {
+  margin: 100px auto;
+  width: 90%;
+}
+@media (min-width: 37.5em) {
+  .hero-wrapper {
+    width: 65%;
+    margin-left: 10%;
+    text-align: left;
+  }
+}
+@media (min-width: 75em) {
+  .hero-wrapper {
+    margin-top: 125px;
+    margin-left: 5%;
+  }
+}
+.hero-wrapper .hero__title {
+  font-size: 2.5rem;
+  font-family: "Fraunces", serif;
+  line-height: 2.5rem;
+  margin: auto;
+}
+@media (min-width: 37.5em) {
+  .hero-wrapper .hero__title {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin: 0;
+  }
+}
+@media (min-width: 75em) {
+  .hero-wrapper .hero__title {
+    width: 75%;
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+  }
+}
+.hero-wrapper .hero__text p {
+  font-size: 0.938rem;
+  line-height: 1.563rem;
+  margin: 1.5rem auto;
+  opacity: 0.8;
+}
+@media (min-width: 75em) {
+  .hero-wrapper .hero__text p {
+    width: 60%;
+    font-size: 100%;
+    line-height: 1.625rem;
+    margin: 1.5rem 0;
+  }
+}
+.hero-wrapper .hero__btn {
+  margin: auto;
+}
+.hero-wrapper .hero__btn > .btn {
+  margin-top: 0.938rem;
 }
 
 /*# sourceMappingURL=style.css.map */

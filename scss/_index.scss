@@ -1,33 +1,84 @@
-//.navbar {
-//  width: 100%;
-//  margin-top: 2rem;
-//  display: flex;
-//  justify-content: space-between;
-//
-//  .brand {
-//    margin: auto 0;
-//  }
-//
-//  .links {
-//
-//    .nav {
-//      list-style: none;
-//      padding: 0;
-//      display: flex;
-//      text-align: end;
-//
-//      &__link {
-//        margin-left: 32px;
-//      }
-//
-//    }
-//
-//  }
-//
-//  .hamburger {
-//    width: 16px;
-//    height: 15px;
-//    margin: auto 0;
-//    background-image: url("./../assets/shared/mobile/icon-hamburger.svg");
-//  }
-//}
+@import "variables";
+@import "mixins";
+
+// HERO SECTION
+
+.hero {
+  display: flex;
+  margin-top: 2.5rem;
+  height: 31.25rem;
+  color: $lightCream;
+  text-align: center;
+  background-image: url("./../assets/home/mobile/image-hero-coffeepress.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+
+  @include for-tablet-portrait-up {
+    background-image: url("./../assets/home/tablet/image-hero-coffeepress.jpg");
+  }
+
+  @include for-desktop-up {
+    height: 37.5rem;
+    background-image: url("./../assets/home/desktop/image-hero-coffeepress.jpg");
+  }
+
+  &-wrapper {
+    margin: 100px auto;
+    width: 90%;
+
+    @include for-tablet-portrait-up {
+      width: 65%;
+      margin-left: 10%;
+      text-align: left;
+    }
+
+    @include for-desktop-up {
+      margin-top: 125px;
+      margin-left: 5%;
+    }
+
+    .hero__title {
+      font-size: $font-xl;
+      font-family: $fraunces;
+      line-height: 2.5rem;
+      margin: auto;
+
+      @include for-tablet-portrait-up {
+        font-size: $font-xl2;
+        line-height: 3rem;
+        margin: 0;
+      }
+
+      @include for-desktop-up {
+        width: 75%;
+        font-size: $font-xl4;
+        line-height: 4.5rem;
+      }
+    }
+
+    .hero__text p {
+      font-size: $font-base;
+      line-height: 1.563rem;
+      margin: 1.5rem auto;
+      opacity: 0.8;
+
+      @include for-desktop-up {
+        width: 60%;
+        font-size: 100%;
+        line-height: 1.625rem;
+        margin: 1.5rem 0;
+      }
+    }
+
+    .hero__btn {
+      margin: auto;
+
+      & > .btn {
+        margin-top: 0.938rem;
+      }
+    }
+
+  }
+
+}

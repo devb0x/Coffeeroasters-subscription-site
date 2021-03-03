@@ -36,11 +36,33 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: $grey;
+  transition: all 0.3s ease-in-out;
 }
 
 a:hover {
   color: $darkGreyBlue;
 }
+
+// Buttons
+
+.btn {
+  border: none;
+  outline: none;
+  color: $lightCream;
+  font-family: $fraunces;
+  font-size: $font-lg;
+  background-color: $darkCyan;
+  border-radius: 6px;
+  padding: 15px 31px 16px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $lightCyan;
+  }
+}
+
+
 
 // Visibility
 

@@ -2,10 +2,21 @@ $fraunces: 'Fraunces', serif;
 $barlow: 'Barlow', sans-serif;
 
 $font-xs: 0.75rem; // 12px
+$font-base: 0.938rem; // 15px
+// 16px = 100%
+$font-lg: 1.125rem; // 18px
+$font-xl: 2.5rem; // 40px
+$font-xl2: 3rem; // 48px
+$font-xl4: 4.5rem; // 72px
+
 // sm base lg xl xl2 xl3 ..
 
 $b: 2px solid red;
 
 // Colors
+$darkCyan: hsl(179, 81%, 29%);
+$lightCyan: hsl(179, 55%, 61%);
 $darkGreyBlue: hsl(215, 19%, 25%);
+$paleOrange: hsl(25, 94%, 86%);
 $grey: hsl(215, 5%, 54%);
+$lightCream: hsl(43, 78%, 98%);
