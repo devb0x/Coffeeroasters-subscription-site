@@ -196,4 +196,84 @@
       }
     }
   }
-}
+} // END PRODUCTS SECTION
+
+// FEATURES SECTION
+
+.features {
+  color: $lightCream;
+  height: auto;
+
+
+  &__header {
+    background: url("./../assets/about/mobile/bg-quality.png");
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    .features__bg {
+      background-color: #2C343E;
+      height: 632px;
+      border-radius: 10px;
+    }
+
+    .features__title {
+      font-family: $fraunces;
+      margin-top: 4rem;
+
+      &  h2 {
+        font-size: 1.75rem;
+        line-height: 1.75rem;
+      }
+    }
+
+    .features__description {
+      width: 85%;
+      margin: auto auto 2rem;
+      font-size: $font-base;
+      line-height: 25px;
+      opacity: 0.8;
+    }
+
+  } // end .features__header
+
+  .feature-item {
+    width: 279px;
+    margin: auto auto 1.8rem;
+    background-color: $darkCyan;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    top: -600px;
+
+    &__img {
+
+      & > img {
+        margin-top: 4.25rem;
+      }
+    }
+
+    &__wrapper-text {
+
+      .feature-item__title {
+        font-family: $fraunces;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin: 52px 0 30px;
+      }
+
+      .feature-item__msg {
+        width: 75%;
+        margin: auto;
+        font-size: $font-base;
+        line-height: 1.563rem;
+        padding-bottom: 48px;
+      }
+
+    }
+
+  } // end .feature-item
+
+} // END FEATURES SECTION

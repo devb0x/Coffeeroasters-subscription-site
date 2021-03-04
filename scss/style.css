@@ -293,4 +293,62 @@ a:hover {
   }
 }
 
+.features {
+  color: #fefcf6;
+  height: auto;
+}
+.features__header {
+  background: url("./../assets/about/mobile/bg-quality.png");
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.features__header .features__bg {
+  background-color: #2C343E;
+  height: 632px;
+  border-radius: 10px;
+}
+.features__header .features__title {
+  font-family: "Fraunces", serif;
+  margin-top: 4rem;
+}
+.features__header .features__title h2 {
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+}
+.features__header .features__description {
+  width: 85%;
+  margin: auto auto 2rem;
+  font-size: 0.938rem;
+  line-height: 25px;
+  opacity: 0.8;
+}
+.features .feature-item {
+  width: 279px;
+  margin: auto auto 1.8rem;
+  background-color: #0e8684;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+  top: -600px;
+}
+.features .feature-item__img > img {
+  margin-top: 4.25rem;
+}
+.features .feature-item__wrapper-text .feature-item__title {
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 52px 0 30px;
+}
+.features .feature-item__wrapper-text .feature-item__msg {
+  width: 75%;
+  margin: auto;
+  font-size: 0.938rem;
+  line-height: 1.563rem;
+  padding-bottom: 48px;
+}
+
 /*# sourceMappingURL=style.css.map */
