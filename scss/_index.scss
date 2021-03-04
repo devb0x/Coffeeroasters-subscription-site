@@ -12,7 +12,7 @@
   background-image: url("./../assets/home/mobile/image-hero-coffeepress.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 
   @include for-tablet-portrait-up {
     background-image: url("./../assets/home/tablet/image-hero-coffeepress.jpg");
@@ -24,7 +24,7 @@
   }
 
   &-wrapper {
-    margin: 100px auto;
+    margin: 6.25rem auto;
     width: 90%;
 
     @include for-tablet-portrait-up {
@@ -34,7 +34,7 @@
     }
 
     @include for-desktop-up {
-      margin-top: 125px;
+      margin-top: 7.813rem;
       margin-left: 5%;
     }
 
@@ -81,4 +81,119 @@
 
   }
 
+} // END HERO SECTION
+
+// PRODUCTS SECTION
+
+.products {
+  display: flex;
+  flex-direction: column;
+  margin: 7.5rem auto;
+  text-align: center;
+  position: relative;
+
+  @include for-desktop-up {
+    flex-direction: row;
+  }
+
+  &__title {
+    font-family: $fraunces;
+    font-size: 1.5rem;
+
+    @include for-tablet-portrait-up {
+      width: 100%;
+      position: absolute;
+      font-size: 8vw;
+    }
+
+    & > h2 {
+      text-transform: lowercase;
+      opacity: 0.5;
+      background: -webkit-linear-gradient(90deg, $lightCream, $darkGreyBlue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @include for-tablet-portrait-up {
+        margin: -2% auto;
+      }
+    }
+  }
+
+  .product-item {
+    margin: 2.188rem auto 3.688rem;
+    position: relative;
+
+    @include for-tablet-portrait-up {
+      width: 80%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0 2.813rem;
+      grid-template-areas:
+        "img title title"
+        "img description description";
+      text-align: left;
+    }
+
+    @include for-tablet-landscape-up {
+      margin-top: 9%;
+    }
+
+    @include for-desktop-up {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-top: 7%;
+    }
+
+    &__img {
+
+      @include for-tablet-portrait-up {
+        grid-area: img;
+        margin: auto;
+      }
+
+      & > img {
+        display: flex;
+        margin: auto;
+        height: 9.438rem;
+        width: 12.5rem;
+
+        @include for-tablet-portrait-up {
+          height: 11.063rem;
+          width: 14.625rem;
+          padding-left: 1.875rem;
+          padding-top: 0.688rem;
+        }
+      }
+    }
+
+    &__title {
+      font-family: $fraunces;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin: 1rem;
+
+      @include for-tablet-portrait-up {
+        grid-area: title;
+        margin: auto 0;
+      }
+    }
+
+    &__description {
+      font-size: 0.938rem;
+      line-height: 1.563rem;
+
+      @include for-tablet-portrait-up {
+        grid-area: description;
+      }
+
+      @include for-desktop-up {
+        width: 80%;
+        margin: auto;
+        font-size: 100%;
+        line-height: 1.625rem;
+      }
+    }
+  }
 }
