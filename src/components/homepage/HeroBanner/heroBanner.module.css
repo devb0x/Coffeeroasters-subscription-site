@@ -1,0 +1,83 @@
+.container {
+  width: 80%;
+  height: auto;
+  padding: 5%;
+  margin: auto;
+  background-image: url(../../../../src/assets/home/mobile/image-hero-coffeepress.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  text-align: center;
+  font-family: var(--fraunces);
+  border-radius: 12px;
+  display: grid;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.hero-title {
+  color: var(--lightCream);
+  font-weight: 900;
+  font-size: 40px;
+  margin: 80px 0 22px 0;
+}
+
+.hero-text {
+  color: var(--lightCream);
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: normal;
+  font-family: var(--barlow), sans-serif;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    text-align: left;
+    background-image: url(../../../../src/assets/home/tablet/image-hero-coffeepress.jpg);
+  }
+
+  .wrapper {
+    width: 60%;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-btn {
+    margin: 40px 0 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    background-image: url(../../../../src/assets/home/desktop/image-hero-coffeepress.jpg);
+  }
+
+  .wrapper {
+    justify-content: unset;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+    width: 500px;
+    margin-top: 40px;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    line-height: 26px;
+    width: 400px;
+  }
+
+  .hero-btn {
+    margin-top: 4rem;
+    margin-bottom: 26px;
+  }
+}
