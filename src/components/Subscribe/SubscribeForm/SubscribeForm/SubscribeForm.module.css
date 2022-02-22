@@ -1,13 +1,20 @@
-.question-wrapper {
-  width: 90%;
-  margin: auto auto 110px;
+.btn {
+  display: flex;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
-.question-title-wrapper {
-  display: flex;
-  margin: auto auto 2rem;
-  justify-content: space-between;
+input {
+  display: none;
+  /*outline: 1px solid red;*/
 }
+
+input:checked {
+  outline: 1px solid blue;
+}
+
 
 .question-title {
   font-family: var(--fraunces);
@@ -19,12 +26,14 @@
   margin: 0;
 }
 
-.question-arrow {
-  display: flex;
-  align-items: center;
+
+.title {
+  /*outline: 1px solid red;*/
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.answer-wrapper {
+.answers-wrapper {
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -32,20 +41,13 @@
   border-radius: 8px;
   margin-bottom: 1rem;
   color: var(--veryDarkBlue);
-  padding: 1.5rem;
+  /*padding: 1.5rem;*/
+  /* le padding empeche de selectionné selon ou on clic*/
 }
 
-.answer-wrapper > * {
-  pointer-events: none;
-}
-
-.answer-wrapper:hover {
-  /*color: white;*/
+.answers-wrapper:hover > * {
   background-color: var(--paleOrange);
-}
-
-.hidden {
-  display: none;
+  cursor: pointer;
 }
 
 .answer-title {
@@ -53,12 +55,14 @@
   font-size: 1.5rem;
   font-weight: 900;
   line-height: 2rem;
+
+  margin: 1.5rem 1.5rem 0;
 }
 
 .answer-text {
   font-family: var(--barlow);
   font-size: 1rem;
   line-height: 26px;
-  margin: 0;
+  margin: 0 0 1.5rem 1.5rem;
   padding: 1rem 0;
 }

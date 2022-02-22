@@ -1,162 +1,119 @@
-import React, {Fragment, useState} from 'react';
-
-import classes from './Dropdown.module.css'
-
-const Dropdown = (props) => {
-  // console.log(props.question)
-  // console.log(props.answers[0].title)
-  // console.log(props.answers[1].title)
-  // console.log(props.answers[2].title)
-  console.warn(props.question)
-
-
-  const testClic = (e) => {
-    console.log('clicked')
-    console.log(e.target.nextSibling.checked = true)
-  }
-
-  return (
-    <div className={`${classes['question-wrapper']}`}>
-
-      {/*<div className={`${classes['question-title-wrapper']}`}>*/}
-      {/*  <div className={`${classes['question-title']}`}>*/}
-      {/*    {props.question}*/}
-      {/*  </div>*/}
-      {/*  <div className={`${classes['question-arrow']}`}>*/}
-      {/*    chevron*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-
-
-      {/* don't touch top */}
-      {/* from here answers */}
-
-      {/*{props.answers.map(el => (*/}
-
-      <div className={`${classes['question-title-wrapper']}`}>
-        <div className={`${classes['question-title']}`}>
-          {props.question}
-        </div>
-        <div className={`${classes['question-arrow']}`}>
-          chevron
-        </div>
-      </div>
-
-      {props.answers.map((answer, index) => (
-
-        <label htmlFor={props.question} key={answer.title} className={`${classes['xxx']}`} onClick={testClic}>
-          <div className={`${classes['answer-title']}`}>
-            {answer.title}
-          </div>
-          <p className={`${classes['answer-text']}`}>
-            {answer.text}
-          </p>
-          <input
-            type="radio"
-            id={answer.title}
-            name={props.question}
-            // checked={true}
-            // className={`${classes['hidden']}`}
-          />
-        </label>
-      ))}
-
-
-
-      {/*<label htmlFor={props.answers[0].title}>*/}
-      {/*  <input type="radio" name={props.answers[0].title} id={props.answers[0].title} />*/}
-      {/*  <div className={`${classes['answer-title']}`}>*/}
-      {/*    {props.answers[0].title}*/}
-      {/*  </div>*/}
-      {/*  <p className={`${classes['answer-text']}`}>*/}
-      {/*    {props.answers[0].text}*/}
-      {/*  </p>*/}
-      {/*</label>*/}
-
-      {/*<label htmlFor={props.answers[1].title}>*/}
-      {/*  <input type="radio" name={props.answers[0].title} id={props.answers[1].title}/>*/}
-      {/*  <div className={`${classes['answer-title']}`}>*/}
-      {/*    {props.answers[1].title}*/}
-      {/*  </div>*/}
-      {/*  <p className={`${classes['answer-text']}`}>*/}
-      {/*    {props.answers[1].text}*/}
-      {/*  </p>*/}
-      {/*</label>*/}
-
-      {/*<label htmlFor={props.answers[2].title}>*/}
-      {/*  <input type="radio" name={props.answers[0].title} id={props.answers[2].title} />*/}
-      {/*  <div className={`${classes['answer-title']}`}>*/}
-      {/*    {props.answers[2].title}*/}
-      {/*  </div>*/}
-      {/*  <p className={`${classes['answer-text']}`}>*/}
-      {/*    {props.answers[2].text}*/}
-      {/*  </p>*/}
-      {/*</label>*/}
-
-    </div>
-  );
-}
-
-export default Dropdown;
-
-// {props.answers.map(el => (
-//   <div key={el.title} className={`${classes['answer-wrapper']}`}>
-//     <label htmlFor="" >
-//       <input
-//         type="radio"
-//         value={el.title}
-//         name={props.id}
-//         className={classes.hidden}
-//       />
-//       <div className={`${classes['answer-title']}`}>
-//         {el.title}
+// import React, {Fragment, useState} from 'react';
+//
+// import classes from './Dropdown.module.css'
+//
+// const Dropdown = (props) => {
+//
+//   const [answers, setAnswers] = useState([])
+//   const [selectedOptions, setSelectedOptions] = useState([])
+//
+//   const selectHandler = (e) => {
+//     // console.log(e.target.htmlFor)
+//     // We have pointer-events set to none for .answer-wrapper > *
+//     // So we are only targeting the label
+//     let parent = e.target.parentNode
+//     // console.log(e.target.previousSibling.firstChild.innerText)
+//     let labels = parent.getElementsByTagName("label") // les 3 labels
+//
+//     // let question = e.target.htmlFor
+//     // let qAlreadyPicked = []
+//
+//     for (let label of labels) {
+//       label.style.outline = "unset"
+//       label.style.backgroundColor = "#F4F1EB"
+//       label.style.color = "#2C343E"
+//     }
+//
+//     e.target.style.color = "white"
+//     e.target.style.backgroundColor = "#0E8784FF"
+//
+//     if (e.target.tagName === 'LABEL') {
+//       e.target.lastChild.checked = true
+//     }
+//     if (e.target.tagName === 'DIV') {
+//       e.target.nextSibling.nextSibling.checked = true
+//     }
+//     if (e.target.tagName === 'P') {
+//       e.target.nextSibling.checked = true
+//     }
+//
+//     // styling done, now set state
+//
+//     // console.log(e.target.firstChild.getAttribute("value"))
+//     // answers.push(answerSelected)
+//     // answers = [...new Set(answers)]
+//     // console.log(answers)
+//
+//     let answerSelected = e.target.firstChild.getAttribute("value")
+//     // setAnswers(e.target.firstChild.getAttribute("value"))
+//
+//     // console.log(answerSelected)
+//     // setAnswers(answerSelected)
+//
+//     console.log(answers)
+//
+//     // props.onChange(answers)
+//
+//     console.log(selectedOptions)
+//
+//     selectHandler()
+//
+//
+//     // return props.pick(setAnswers(answerSelected))
+//
+//     // return props.pick(answerSelected) TODO faire ca pr le form submit qd on a les 5 reponses
+//
+//   }
+//
+//   const newfunction = () => {
+//     console.log('test')
+//   }
+//
+//   return (
+//     <div className={`${classes['question-wrapper']}`}>
+//
+//       <div className={`${classes['question-title-wrapper']}`} >
+//         <div className={`${classes['question-title']}`}>
+//           {props.question}
+//         </div>
+//         <div className={`${classes['question-arrow']}`}>
+//           chevron
+//         </div>
 //       </div>
-//       <p className={`${classes['answer-text']}`}>
-//         {el.text}
-//       </p>
-//     </label>
-//   </div>
-// ))}
-
-
-// {props.answers.map(el => (
-//   <Fragment key={el.title}>
-//     <input type="radio" id={el.title} name={props.id} />
-//     <label htmlFor={el.title}>{el.title}</label>
-//   </Fragment>
-// ))}
-
-
-
-
-// CA C EST BON LOLE
-
-// <label htmlFor={props.answers[0].title}>
-//   <input type="radio" name={props.answers[0].title} id={props.answers[0].title} />
-//   <div className={`${classes['answer-title']}`}>
-//     {props.answers[0].title}
-//   </div>
-//   <p className={`${classes['answer-text']}`}>
-//     {props.answers[0].text}
-//   </p>
-// </label>
 //
-// <label htmlFor={props.answers[1].title}>
-//   <input type="radio" name={props.answers[0].title} id={props.answers[1].title}/>
-//   <div className={`${classes['answer-title']}`}>
-//     {props.answers[1].title}
-//   </div>
-//   <p className={`${classes['answer-text']}`}>
-//     {props.answers[1].text}
-//   </p>
-// </label>
+//       {props.answers.map((answer) => (
 //
-// <label htmlFor={props.answers[2].title}>
-//   <input type="radio" name={props.answers[0].title} id={props.answers[2].title} />
-//   <div className={`${classes['answer-title']}`}>
-//     {props.answers[2].title}
-//   </div>
-//   <p className={`${classes['answer-text']}`}>
-//     {props.answers[2].text}
-//   </p>
-// </label>
+//         <label
+//           htmlFor={props.question}
+//           key={answer.title}
+//           className={`${classes['answer-wrapper']}`}
+//           // onClick={selectHandler}
+//           // onChange={selectHandler}
+//         >
+//           <div
+//             className={`${classes['answer-title']}`}
+//             value={answer.title}
+//           >
+//             {answer.title}
+//           </div>
+//           <p className={`${classes['answer-text']}`}>
+//             {answer.text}
+//           </p>
+//           <input
+//             value={answer.title}
+//             type="radio"
+//             id={answer.title}
+//             name={props.question}
+//             className={`${classes['hidden']}`}
+//             checked={selectHandler}
+//             // onChange={(e) => setSelectedOptions(selectedOptions)}
+//
+//           />
+//         </label>
+//       ))}
+//
+//     </div>
+//   );
+// }
+//
+// export default Dropdown;

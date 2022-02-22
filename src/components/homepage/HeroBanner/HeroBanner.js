@@ -8,7 +8,7 @@ function HeroBanner() {
     <section className={classes.container}>
       <div className={classes.wrapper}>
         <h1 className={`${classes['hero-title']}`}>
-          Greet coffee made simple.
+          Great coffee made simple.
         </h1>
         <div className={`${classes['hero-text']}`}>
           Start your mornings with the world’s best coffees. Try our expertly curated artisan
