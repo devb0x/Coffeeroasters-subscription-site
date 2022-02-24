@@ -8,11 +8,17 @@
 
 input {
   display: none;
-  /*outline: 1px solid red;*/
 }
 
-input:checked {
-  outline: 1px solid blue;
+.form {
+  width: 328px;
+  margin: auto;
+}
+
+input[type=radio]:checked + label {
+  color: white;
+  background-color: var(--darkCyan);
+  border-radius: 8px;
 }
 
 
@@ -28,18 +34,19 @@ input:checked {
 
 
 .title {
-  /*outline: 1px solid red;*/
   font-size: 1.5rem;
   font-weight: bold;
 }
 
 .answers-wrapper {
+  /*width: 328px;*/
   display: flex;
+  /*margin: auto auto 1rem;*/
+  margin-bottom: 1rem;
   flex-direction: column;
   cursor: pointer;
   background-color: var(--lightGrey);
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  /*border-radius: 8px;*/
   color: var(--veryDarkBlue);
   /*padding: 1.5rem;*/
   /* le padding empeche de selectionné selon ou on clic*/
@@ -65,4 +72,15 @@ input:checked {
   line-height: 26px;
   margin: 0 0 1.5rem 1.5rem;
   padding: 1rem 0;
+}
+
+.arrow {
+  color: red;
+  padding: .5rem;
+  margin-left: 5rem;
+}
+
+.answer-label {
+  border-radius: 8px;
+  box-shadow: 0 5px 5px var(--boxShadow);
 }

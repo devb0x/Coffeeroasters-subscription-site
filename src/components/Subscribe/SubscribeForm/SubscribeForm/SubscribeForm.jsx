@@ -7,10 +7,11 @@ import Summary from "../../Summary/Summary"
 import classes from './SubscribeForm.module.css'
 
 const SubscribeForm = () => {
-  const [isSubmit, setIsSubmit] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const [answersSelected, setAnswersSelected] = useState([])
+  const [isSubmit, setIsSubmit] = useState(false)
 
-  const questions = [
+  const [questions, setQuestions] = useState([
     {
       id: 91,
       question: "How do you drink your coffee?",
@@ -116,8 +117,12 @@ const SubscribeForm = () => {
         }
       ]
     }
-  ]
+  ], [])
 
+
+  const toggleHandler = () => {
+    setIsOpen(!isOpen)
+  }
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -128,62 +133,66 @@ const SubscribeForm = () => {
     for (let i = 0; i < userPicks.length; i++) {
       answers.push(userPicks[i].value)
     }
-    setAnswersSelected(answers)
-    setIsSubmit(true)
 
-    //TODO check answers length = 5, si oui => setIsSubmit(true)
-    //     check le bug avec filter (qd on clic sur le 2nd on est scroll vers le haut)
-  }
-
-  const changeHandler = (e) => {
-    console.log('picked')
-    console.log(e.target.nextSibling)
-    console.log(e.target.checked)
-    if (e.target.checked) {
-      e.target.nextSibling.style.color = '#fff'
-      e.target.nextSibling.style.backgroundColor = '#0E8784'
+    if (answers.length !== questions.length) {
+      console.log('error form')
+      return
     }
 
-    // answer.isPicked = true
+    setAnswersSelected(answers)
+    setIsSubmit(true)
   }
+
+  // const eventTest = (e) => {
+  //   console.log('test event')
+  //   console.log(e.target.checked)
+  //
+  //   const target = e.target.checked
+  //
+  //   console.log(target)
+  //   // e.target.checked
+  // }
 
   return (
     <section>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className={`${classes['form']}`}>
 
         {questions.map(question => (
-          <div key={question.id}>
-            <div className={`${classes['question-title']}`} >
-              {question.question}
-            </div>
+            <Dropdown question={question.question} key={question.id}>
 
-            {question.answers.map(answer => (
-              <div className={`${classes['answers-wrapper']}`} key={answer.title}>
-                <input
-                  type="radio"
-                  value={answer.title}
-                  name={question.question}
-                  id={answer.text}
-                  onChange={changeHandler}
-                />
-                <label htmlFor={answer.text} >
-                  <div className={`${classes['answer-title']}`}>
-                    {answer.title}
-                  </div>
-                  <div className={`${classes['answer-text']}`}>
-                    {answer.text}
-                  </div>
-                </label>
-              </div>
-            ))}
-          </div>
+              {question.answers.map(answer => (
+                <div className={`${classes['answers-wrapper']}`} key={answer.title}>
+                  <input
+                    type="radio"
+                    value={answer.title}
+                    name={question.question}
+                    id={answer.text}
+                  />
+                  <label htmlFor={answer.text} className={`${classes['answer-label']}`}>
+                    <div className={`${classes['answer-title']}`}>
+                      {answer.title}
+                    </div>
+                    <div className={`${classes['answer-text']}`}>
+                      {answer.text}
+                    </div>
+                  </label>
+                </div>
+              ))}
+
+            </Dropdown>
         ))}
 
         {isSubmit &&
           <Summary picks={answersSelected}/>
         }
 
-        <button className={`${classes['btn']}`} onClick={submitHandler}>Create my plan</button>
+        <button
+          type={"submit"}
+          className={`${classes['btn']}`}
+          onClick={submitHandler}
+        >
+          Create my plan
+        </button>
       </form>
     </section>
   );
