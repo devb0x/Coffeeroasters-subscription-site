@@ -1,5 +1,16 @@
 .dropdown {
-  /*outline: 1px solid red;*/
+  margin-bottom: 6rem;
+  align-items: center;
+  align-content: center;
+}
+
+.wrapper-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .dropdown-btn {
@@ -8,15 +19,19 @@
   font-size: 1.5rem;
   font-weight: 900;
   line-height: 28px;
-  margin: 0 0 1rem;
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  width: auto;
+  width: 85%;
   text-align: left;
 }
 
-.dropdown-btn__icon {
-  font-size: 1rem;
-  margin-right: 0;
+.chevron {
+  color: var(--darkCyan);
+  font-size: 1.5rem;
+  width: 100%;
 }
+
+.dropdown-btn__icon.rotate {
+  transform: rotate(180deg);
+}
+
+

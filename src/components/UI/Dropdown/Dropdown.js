@@ -1,10 +1,15 @@
 import React, {useState} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 import classes from './Dropdown.module.css'
 
-const Dropdown = (props) => {
+// TODO centrer le chevron avec le titre / question
 
-  const [isOpen, setIsOpen] = useState(true)
+const Dropdown = (props) => {
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleHandler = () => {
     setIsOpen(!isOpen)
@@ -12,11 +17,16 @@ const Dropdown = (props) => {
 
   return (
     <div className={`${classes['dropdown']}`}>
-      <button type={"button"} onClick={toggleHandler} className={`${classes['dropdown-btn']}`}>
-        {props.question}
-        <span className={`${classes['dropdown-btn__icon']}`}>arrow icon</span>
-      </button>
-      <div style={{ display: isOpen ? 'none' : 'block' }}>
+      <div className={`${classes['wrapper-btn']}`} onClick={toggleHandler}>
+        <button type={"button"} className={`${classes['dropdown-btn']}`}>
+          {props.question}
+        </button>
+        <span className={`${classes['dropdown-btn__icon']} ${isOpen && classes.rotate} `}>
+          <FontAwesomeIcon icon={faChevronDown} className={classes.chevron}/>
+        </span>
+      </div>
+
+      <div style={{ display: isOpen ? 'block' : 'none' }}>
         {props.children}
       </div>
     </div>

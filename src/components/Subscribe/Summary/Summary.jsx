@@ -1,19 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import classes from './Summary.module.css'
 
 const Summary = (props) => {
-  console.log(props)
+
+  useEffect(() => {
+
+  }, [props])
+  // console.log(props)
+  // console.log(props.picks[2])
+  for (let i=0; i < props.picks.length; i++) {
+    if (props.picks[i] === undefined) {
+      props.picks[i] = '_ _ _ _ _'
+    }
+  }
 
   return (
     <div className={`${classes['container']}`}>
       <h5>order summary</h5>
-
-      {/*{props.picks.map(answer => (*/}
-      {/*  <div>*/}
-      {/*    {answer}*/}
-      {/*  </div>*/}
-      {/*))}*/}
 
       <div>
         "I drink my coffee as <span>{props.picks[0]}</span>,
@@ -27,9 +31,3 @@ const Summary = (props) => {
 }
 
 export default Summary;
-
-// “I drink my coffee as    Filter,   how
-// with a                   Decaf     type
-// type of bean.            250g      quantity
-// ground ala             Cafetiére,  grind
-// sent to me           Every Week.”  often
