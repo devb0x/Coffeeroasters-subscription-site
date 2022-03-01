@@ -1,37 +1,30 @@
-import React from "react"
+import React, {useState} from "react"
 import classes from "../../Subscribe/SubscribeForm/SubscribeForm/SubscribeForm.module.css"
 
-const TextField = ({
-   type,
-   value,
-   name,
-   desc,
-   id,
-  onChange = () => {console.log('test')}
-}) => {
-  console.log(type)
+
+const TextField = ({type= 'text', id, label, value, onchange = () => {} }) => {
+  // const id = label
+  //   .toLowerCase()
+  //   .split('')
+  //   .map((word) => word.replace(/[^a-z]+/g, ''))
+  //   .join('')
+
   return (
     <div>
-
       <input
-        type={type}
+        type="radio"
+        // id={answer.text}
+        id={value}
         value={value}
-        name={name}
-        id={id}
-        onChange={(e) => onChange(e.target.value, e)}
-        // onChange={(e) => changeHandler(e, question)}
-        // onChange={(e) => setQuestions(prev => ({
-        //   ...prev,
-        //   isAnswered: true
-        // }))}
+        // onChange={(e) => onchange(e.target.value, e)}
       />
 
-      <label htmlFor={value} className={`${classes['answer-label']}`}>
-        <div className={`${classes['answer-title']}`}>
+      <label htmlFor={value}>
+        <div>
           {value}
         </div>
-        <div className={`${classes['answer-text']}`}>
-          {desc}
+        <div>
+          {label}
         </div>
       </label>
 
