@@ -92,7 +92,7 @@ const SubscribeForm = () => {
           isSelected: false
         },
         {
-          title: "Cafetiere",
+          title: "Cafetiére",
           text: "Course ground beans specially suited for french press coffee",
           isSelected: false
         }
@@ -265,9 +265,27 @@ const SubscribeForm = () => {
   }
 
   return (
-    <section>
-      <form onSubmit={submitHandler} className={`${classes['form']}`}>
+    <section className={`${classes['section']}`}>
 
+      <div className={`${classes['form-steps-wrapper']}`}>
+        <div className={`${classes['form-step']}`}>
+          <span>01</span> Preferences
+        </div>
+        <div className={`${classes['form-step']}`}>
+          <span>02</span> Bean Type
+        </div>
+        <div className={`${classes['form-step']}`}>
+          <span>03</span> Quantity
+        </div>
+        <div className={`${classes['form-step']}`}>
+          <span>04</span> Grind Option
+        </div>
+        <div className={`${classes['form-step']}`}>
+          <span>05</span> Deliveries
+        </div>
+      </div>
+
+      <form onSubmit={submitHandler} className={`${classes['form']}`}>
         {questions.map(question => (
           <Dropdown question={question.question} isAnswered={question.isAnswered} key={question.id}>
 
@@ -279,13 +297,7 @@ const SubscribeForm = () => {
                   name={question.question}
                   id={answer.text}
                   onChange={(e) => changeHandler(e.target.value, question)}
-                  // onChange={(e) => changeHandler(e, question)}
-                  // onChange={(e) => setQuestions((prev) => ({
-                  //   ...prev,
-                  //   isAnswered: true
-                  // }))}
                 />
-
 
                 <label htmlFor={answer.text} className={`${classes['answer-label']}`}>
                   <div className={`${classes['answer-title']}`}>

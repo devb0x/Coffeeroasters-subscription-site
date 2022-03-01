@@ -10,7 +10,7 @@ import classes from './Dropdown.module.css'
 
 const Dropdown = (props) => {
   console.log(props.isAnswered)
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
 
   const toggleHandler = () => {
     setIsOpen(!isOpen)
@@ -27,7 +27,7 @@ const Dropdown = (props) => {
         </span>
       </div>
 
-      <div style={{ display: isOpen ? 'block' : 'none' }}>
+      <div style={{ display: isOpen ? '' : 'none' }} className={classes.container}>
         {props.children}
       </div>
     </div>

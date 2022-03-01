@@ -2,8 +2,13 @@ input {
   display: none;
 }
 
-.form {
+.section {
   width: 328px;
+  margin: auto;
+}
+
+.form {
+  /*width: 328px;*/
   margin: auto;
 }
 
@@ -99,14 +104,63 @@ input[type=radio]:checked + label {
 }
 
 @media screen and (min-width: 768px) {
-  .btn {
-    margin: 40px 0 0;
+  .section {
+    width: 689px;
+  }
+
+  .answer-label {
+    height: 250px;
+    width: 223px;
+  }
+
+  .answer-label {
+    padding-top: 2rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .section {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .form {
+    width: 730px;
+    float: right;
+    padding-top: 1rem;
+    margin: unset;
+  }
+
+  .form-steps-wrapper {
+    width: 255px;
+    font-family: var(--fraunces);
+  }
+
+  .form-step {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(131, 136, 143, 0.25);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--grey);
+    opacity: .5;
+  }
+
+  .form-step:nth-last-child(1) {
+    border-bottom: unset;
+  }
+
+  .form-step:hover {
+    opacity: .8;
+  }
+
+  .form-step > span {
+    margin-right: 1.781rem;
+  }
+
+
   .btn {
     margin-top: 4rem;
-    margin-bottom: 26px;
+    margin-right: 0;
   }
 }
