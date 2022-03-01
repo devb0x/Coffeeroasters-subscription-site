@@ -2,6 +2,10 @@ input {
   display: none;
 }
 
+.form-steps-wrapper {
+  display: none;
+}
+
 .section {
   width: 328px;
   margin: auto;
@@ -133,6 +137,7 @@ input[type=radio]:checked + label {
   }
 
   .form-steps-wrapper {
+    display: block;
     width: 255px;
     font-family: var(--fraunces);
   }
@@ -157,7 +162,6 @@ input[type=radio]:checked + label {
   .form-step > span {
     margin-right: 1.781rem;
   }
-
 
   .btn {
     margin-top: 4rem;
