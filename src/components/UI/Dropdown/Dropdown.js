@@ -9,8 +9,7 @@ import classes from './Dropdown.module.css'
 // TODO centrer le chevron avec le titre / question
 
 const Dropdown = (props) => {
-  console.log(props.isAnswered)
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleHandler = () => {
     setIsOpen(!isOpen)

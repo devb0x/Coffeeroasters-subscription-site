@@ -6,6 +6,7 @@ import Summary from "../../Summary/Summary"
 
 import classes from './SubscribeForm.module.css'
 import TextField from "../../../UI/TextField/TextField"
+import Modal from "../../../UI/Modal/Modal"
 
 const SubscribeForm = () => {
   const [isSubmit, setIsSubmit] = useState(false)
@@ -123,6 +124,8 @@ const SubscribeForm = () => {
     }
   ])
 
+  const [showModal, setShowModal] = useState(false)
+
 
   // const [answers, setAnswers] = useState([
   //   {
@@ -155,8 +158,6 @@ const SubscribeForm = () => {
   const [deliveries, setDeliveries] = useState('_____')
 
   const changeHandler = (val, question) => {
-    console.log(question)
-
     switch(question.id) {
       case 91:
         setPreferences(val)
@@ -176,8 +177,6 @@ const SubscribeForm = () => {
       default:
         break
     }
-
-    console.log(questions)
   }
 
 
@@ -234,34 +233,22 @@ const SubscribeForm = () => {
   //   // let indexOfPick = question.map(answers)
   // }
 
+  // const showModal = () => {
+  //   setShowModal(true)
+  //
+  // }
+  const closeModal = () => {
+    console.log('close modal')
+    setShowModal(false)
+  }
+
   const submitHandler = (e) => {
     e.preventDefault()
-    console.warn(questions[4])
-
-    // let answers = [
-    //   '_____',
-    //   '_____',
-    //   '_____',
-    //   '_____',
-    //   '_____'
-    // ]
-    //
-    // const userPicks = document.querySelectorAll('input[type="radio"]:checked')
-    // for (let i = 0; i < userPicks.length; i++) {
-    //   // answers.push(userPicks[i].value)
-    //   // answers = userPicks[i].value
-    //   setAnswers(answers[i] = userPicks[i].value)
-    //   console.log(answers)
-    //   console.log(answers[i])
-    // }
-
-    // if (answers.length !== questions.length) {
-    //   console.log('error form')
-    //   return
-    // }
-
-    // setAnswersSelected(answers)
     setIsSubmit(true)
+    console.log('form submitted')
+
+    setShowModal(true)
+
   }
 
   return (
@@ -329,6 +316,19 @@ const SubscribeForm = () => {
           Create my plan!
         </button>
       </form>
+
+      {showModal &&
+        <Modal
+          title={"order summary"}
+          preferences={preferences}
+          bean={beanType}
+          qty={quantity}
+          grind={grindOption}
+          deliveries={deliveries}
+          onConfirm={closeModal}
+        />
+      }
+
     </section>
   )
 }
