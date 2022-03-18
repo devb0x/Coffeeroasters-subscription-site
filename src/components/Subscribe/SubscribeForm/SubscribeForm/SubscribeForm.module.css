@@ -143,12 +143,22 @@ input[type=radio]:checked + label {
   }
 
   .form-step {
-    padding: 1.5rem 0;
+    padding: 0 0 1.5rem;
+    margin-top: 1rem;
     border-bottom: 1px solid rgba(131, 136, 143, 0.25);
     font-size: 1.5rem;
     font-weight: 900;
     color: var(--grey);
     opacity: .5;
+  }
+
+  .form-step__answered {
+    color: var(--veryDarkBlue);
+    opacity: 1;
+  }
+
+  .form-step__answered > span {
+    color: var(--darkCyan);
   }
 
   .form-step:nth-last-child(1) {
@@ -167,4 +177,9 @@ input[type=radio]:checked + label {
     margin-top: 4rem;
     margin-right: 0;
   }
+}
+
+
+.btn:disabled {
+  outline: 5px solid red;
 }

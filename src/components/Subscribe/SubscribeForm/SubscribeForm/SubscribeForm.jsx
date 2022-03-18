@@ -1,19 +1,23 @@
-import React, {Fragment, useEffect, useReducer, useState} from 'react';
-import Button from "../../../UI/Button/Button"
-import Dropdown from "../../../UI/Dropdown/Dropdown"
-import DropTest from "../../../UI/Dropdown/DropTest"
-import Summary from "../../Summary/Summary"
+import React, {Fragment,useEffect, useRef, useState} from 'react';
 
-import classes from './SubscribeForm.module.css'
-import TextField from "../../../UI/TextField/TextField"
+import Dropdown from "../../../UI/Dropdown/Dropdown"
+import Summary from "../../Summary/Summary"
 import Modal from "../../../UI/Modal/Modal"
 
+import classes from './SubscribeForm.module.css'
+
+
 const SubscribeForm = () => {
-  const [isSubmit, setIsSubmit] = useState(false)
+
+  // const [isSubmit, setIsSubmit] = useState(false)
 
   const [questions, setQuestions] = useState([
     {
       id: 91,
+      step: {
+        number: '01',
+        text: 'Preferences'
+      },
       question: "How do you drink your coffee?",
       answers: [
         {
@@ -36,6 +40,10 @@ const SubscribeForm = () => {
     },
     {
       id: 92,
+      step: {
+        number: '02',
+        text: 'Bean type'
+      },
       question: "What type of coffee?",
       answers: [
         {
@@ -58,6 +66,10 @@ const SubscribeForm = () => {
     },
     {
       id: 93,
+      step: {
+        number: '03',
+        text: 'Quantity'
+      },
       question: "How much would you like?",
       answers: [
         {
@@ -80,6 +92,10 @@ const SubscribeForm = () => {
     },
     {
       id: 94,
+      step: {
+        number: '04',
+        text: 'Grind Option'
+      },
       question: "Want us to grind them?",
       answers: [
         {
@@ -102,6 +118,10 @@ const SubscribeForm = () => {
     },
     {
       id: 95,
+      step: {
+        number: '05',
+        text: 'Deliveries'
+      },
       question: "How often should we deliver?",
       answers: [
         {
@@ -124,32 +144,11 @@ const SubscribeForm = () => {
     }
   ])
 
+  const [count, setCount] = useState(0)
+  const [btnDisabled, setBtnDisabled] = useState(true)
   const [showModal, setShowModal] = useState(false)
 
-
-  // const [answers, setAnswers] = useState([
-  //   {
-  //     id: 91,
-  //     // value: '_____'
-  //   },
-  //   {
-  //     id: 92,
-  //     // value: '_____'
-  //   },
-  //   {
-  //     id: 93,
-  //     // value: '_____'
-  //   },
-  //   {
-  //     id: 94,
-  //     // value: '_____'
-  //   },
-  //   {
-  //     id: 95,
-  //     // value: '_____'
-  //   },
-  // ])
-
+  const createBtnRef = useRef()
 
   const [preferences, setPreferences] = useState('_____')
   const [beanType, setBeanType] = useState('_____')
@@ -157,8 +156,8 @@ const SubscribeForm = () => {
   const [grindOption, setGrindOption] = useState('_____')
   const [deliveries, setDeliveries] = useState('_____')
 
-  const changeHandler = (val, question) => {
-    switch(question.id) {
+  const changeHandler = (val, questAnswered) => {
+    switch(questAnswered.id) {
       case 91:
         setPreferences(val)
         break
@@ -177,99 +176,85 @@ const SubscribeForm = () => {
       default:
         break
     }
+
+    setQuestions((questions) => {
+      return questions.map((question) => {
+        if (questAnswered.id === question.id) {
+          return {
+            ...question,
+            isAnswered: true,
+          }
+        }
+        return question
+      })
+    })
+
+    checkCount()
+
+    // let count = 0
+    // questions.map((question) => {
+    //   console.log(questions.length)
+    //   if (question.isAnswered) {
+    //     count++
+    //   } else {
+    //     return false
+    //   }
+    //   return count
+    // })
+    //
+    // if (count === questions.length) {
+    //   // setIsSubmit(true)
+    //   setBtnDisabled(false)
+    //   // setShowModal(true)
+    // }
+
   }
 
+  const checkCount = () => {
+    console.log(questions)
+    let scopedCount = 1
+    console.log(count)
 
-    // console.log(questionSelected.id)
-    // console.log(selectedQuestion.answers)
-    // console.log(selectedQuestion)
-    // console.log(selectedQuestion.answers)
+    return questions.map((question) => {
+      if (question.isAnswered === true) {
+        scopedCount++
+        return setCount(scopedCount)
+      } else {
+        console.log('not answered')
+      }
+      return scopedCount
+    })
+  }
 
-    // plus besoin
-    // setQuestions((questions) => {
-    //   questions.map((question) => {
-    //     if (questionSelected.id === question.id) {
-    //       console.log(question.answers)
-    //       return {
-    //         ...question,
-    //         isAnswered: true,
-    //         answers: {isSelected: true}
-    //       }
-    //     }
-    //     return question
-    //   })
-    //   return questions
-    // })
-    // fin plus besoin
-  // const changeHandler = (e, question, answers) => {
-  //   // console.log(e.value)
-  //   // console.log(question)
-  //   // console.log(question.id)
-  //
-  //   // console.log(e.id) // nop
-  //   const value = e.value
-  //
-  //   setAnswers((answers) => (
-  //     answers.map((answer, index) => {
-  //       if (question.id === answer.id) {
-  //         console.log('modif ici')
-  //         console.log(answer)
-  //         return {
-  //           // ...answers,
-  //           // value: e.value
-  //           // answer.id,
-  //           // ...answer,
-  //           value
-  //         }
-  //         // setAnswers(answer)
-  //       }
-  //     return answers
-  //     })
-  //   ))
-  //
-  //   // console.log(answers)
-  //   // return answers
-  //
-  //   // let indexOfPick = question.map(answers)
-  // }
-
-  // const showModal = () => {
-  //   setShowModal(true)
-  //
-  // }
   const closeModal = () => {
-    console.log('close modal')
     setShowModal(false)
   }
 
   const submitHandler = (e) => {
     e.preventDefault()
-    setIsSubmit(true)
-    console.log('form submitted')
-
     setShowModal(true)
-
   }
+
+
+  useEffect(() => {
+    console.warn('count from useEffect : ' + count)
+    if (count >= questions.length) {
+      setBtnDisabled(false)
+      console.log('its ok now')
+    }
+  }, [count])
 
   return (
     <section className={`${classes['section']}`}>
 
       <div className={`${classes['form-steps-wrapper']}`}>
-        <div className={`${classes['form-step']}`}>
-          <span>01</span> Preferences
-        </div>
-        <div className={`${classes['form-step']}`}>
-          <span>02</span> Bean Type
-        </div>
-        <div className={`${classes['form-step']}`}>
-          <span>03</span> Quantity
-        </div>
-        <div className={`${classes['form-step']}`}>
-          <span>04</span> Grind Option
-        </div>
-        <div className={`${classes['form-step']}`}>
-          <span>05</span> Deliveries
-        </div>
+
+        {questions.map(question => (
+          <div className={question.isAnswered ? `${classes['form-step']} ${classes['form-step__answered']}` : `${classes['form-step']}` }>
+            <span>{question.step.number}</span>{question.step.text}
+          </div>
+          ))}
+
       </div>
 
       <form onSubmit={submitHandler} className={`${classes['form']}`}>
@@ -309,9 +294,11 @@ const SubscribeForm = () => {
         />
 
         <button
+          ref={createBtnRef}
           type={"submit"}
           className={`${classes['btn']}`}
           onClick={submitHandler}
+          disabled={btnDisabled}
         >
           Create my plan!
         </button>
@@ -331,6 +318,7 @@ const SubscribeForm = () => {
 
     </section>
   )
+
 }
 
 export default SubscribeForm;

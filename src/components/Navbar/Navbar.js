@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react"
+import React, {Fragment, useEffect, useState} from "react"
 
 import useWindowDimensions from "../../Utils/window"
 
@@ -6,11 +6,20 @@ import logo from '../../assets/shared/desktop/logo.svg'
 import hamburger from '../../assets/shared/mobile/icon-hamburger.svg'
 import close from '../../assets/shared/mobile/icon-close.svg'
 import classes from "./Navbar.module.css"
-import {Link} from "react-router-dom"
+import {Link, useLocation, useParams} from "react-router-dom"
 
 const Navbar = () => {
   const {height, width} = useWindowDimensions()
   const [isOpen, setIsOpen] = useState(false)
+  const [pathname, setPathname] = useState(window.location.pathname)
+
+  // console.log('rerender')
+  // console.log(pathname)
+
+  useEffect(() => {
+    setIsOpen(false)
+    setPathname(window.location.pathname)
+  }, [width, pathname])
 
 
   const displayNavMobileHandler = () => {
