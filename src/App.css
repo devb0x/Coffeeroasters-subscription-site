@@ -1,8 +1,5 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Fraunces:wght@400;900&display=swap');*/
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Fraunces:wght@400;900&display=swap');
-* {
-  /*font-family: var(--fraunces), sans-serif;*/
-}
 
 button  {
   border: 0;
@@ -16,5 +13,4 @@ ul {
 
 a {
   text-decoration: none;
-  /*color: #333D4B;*/
 }

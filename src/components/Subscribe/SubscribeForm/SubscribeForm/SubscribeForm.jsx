@@ -1,11 +1,10 @@
-import React, {Fragment,useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react'
 
 import Dropdown from "../../../UI/Dropdown/Dropdown"
 import Summary from "../../Summary/Summary"
 import Modal from "../../../UI/Modal/Modal"
 
 import classes from './SubscribeForm.module.css'
-
 
 const SubscribeForm = () => {
 
@@ -191,23 +190,6 @@ const SubscribeForm = () => {
 
     checkCount()
 
-    // let count = 0
-    // questions.map((question) => {
-    //   console.log(questions.length)
-    //   if (question.isAnswered) {
-    //     count++
-    //   } else {
-    //     return false
-    //   }
-    //   return count
-    // })
-    //
-    // if (count === questions.length) {
-    //   // setIsSubmit(true)
-    //   setBtnDisabled(false)
-    //   // setShowModal(true)
-    // }
-
   }
 
   const checkCount = () => {
@@ -248,13 +230,11 @@ const SubscribeForm = () => {
     <section className={`${classes['section']}`}>
 
       <div className={`${classes['form-steps-wrapper']}`}>
-
-        {questions.map(question => (
-          <div className={question.isAnswered ? `${classes['form-step']} ${classes['form-step__answered']}` : `${classes['form-step']}` }>
+        {questions.map((question, index) => (
+          <div className={question.isAnswered ? `${classes['form-step']} ${classes['form-step__answered']}` : `${classes['form-step']}` } key={index}>
             <span>{question.step.number}</span>{question.step.text}
           </div>
           ))}
-
       </div>
 
       <form onSubmit={submitHandler} className={`${classes['form']}`}>
@@ -271,7 +251,7 @@ const SubscribeForm = () => {
                   onChange={(e) => changeHandler(e.target.value, question)}
                 />
 
-                <label htmlFor={answer.text} className={`${classes['answer-label']}`}>
+                <label htmlFor={answer.text} className={`${classes['answer-label']}`} >
                   <div className={`${classes['answer-title']}`}>
                     {answer.title}
                   </div>
@@ -302,7 +282,6 @@ const SubscribeForm = () => {
         >
           Create my plan!
         </button>
-      </form>
 
       {showModal &&
         <Modal
@@ -316,14 +295,11 @@ const SubscribeForm = () => {
         />
       }
 
+      </form>
+
     </section>
   )
 
 }
 
-export default SubscribeForm;
-
-
-
-// TODO modif button component with props, check event submit
-// <Button onClick={submitHandler} />
+export default SubscribeForm

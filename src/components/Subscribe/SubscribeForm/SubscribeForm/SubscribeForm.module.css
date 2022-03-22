@@ -9,11 +9,14 @@ input {
 .section {
   width: 328px;
   margin: auto;
+
+
 }
 
 .form {
   /*width: 328px;*/
   margin: auto;
+
 }
 
 input[type=radio]:checked + label {
