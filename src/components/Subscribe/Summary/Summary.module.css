@@ -1,0 +1,29 @@
+.container {
+  margin: auto;
+  background-color: var(--veryDarkBlue);
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: white;
+}
+
+.summary-title {
+  font-family: var(--barlow);
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.summary-text {
+  font-family: var(--fraunces);
+  font-size: 1.5rem;
+  line-height: 40px;
+  font-weight: 900;
+  padding-bottom: 2rem;
+}
+
+.summary-text > span {
+  color: var(--darkCyan);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}

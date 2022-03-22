@@ -25,7 +25,7 @@ function Footer() {
             </Link>
           </li>
           <li className={`${classes['links-one__list-item']}`}>
-            <Link to="/" className={classes.link} >
+            <Link to="/subscribe" className={classes.link} >
               create your plan
             </Link>
           </li>
