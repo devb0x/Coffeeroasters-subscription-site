@@ -212,6 +212,9 @@ const SubscribeForm = () => {
     setShowModal(true)
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
 
   useEffect(() => {
     if (count >= questions.length) {
