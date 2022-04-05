@@ -8,8 +8,6 @@ import classes from './SubscribeForm.module.css'
 
 const SubscribeForm = () => {
 
-  // const [isSubmit, setIsSubmit] = useState(false)
-
   const [questions, setQuestions] = useState([
     {
       id: 91,
@@ -189,13 +187,10 @@ const SubscribeForm = () => {
     })
 
     checkCount()
-
   }
 
   const checkCount = () => {
-    console.log(questions)
     let scopedCount = 1
-    console.log(count)
 
     return questions.map((question) => {
       if (question.isAnswered === true) {
@@ -219,10 +214,8 @@ const SubscribeForm = () => {
 
 
   useEffect(() => {
-    console.warn('count from useEffect : ' + count)
     if (count >= questions.length) {
       setBtnDisabled(false)
-      console.log('its ok now')
     }
   }, [count])
 
@@ -231,7 +224,13 @@ const SubscribeForm = () => {
 
       <div className={`${classes['form-steps-wrapper']}`}>
         {questions.map((question, index) => (
-          <div className={question.isAnswered ? `${classes['form-step']} ${classes['form-step__answered']}` : `${classes['form-step']}` } key={index}>
+          <div
+            className={question.isAnswered ?
+              `${classes['form-step']} ${classes['form-step__answered']}` :
+              `${classes['form-step']}`
+            }
+            key={index}
+          >
             <span>{question.step.number}</span>{question.step.text}
           </div>
           ))}
@@ -243,7 +242,7 @@ const SubscribeForm = () => {
 
             {question.answers.map(answer => (
               <div className={`${classes['answers-wrapper']}`} key={answer.title} >
-                <input
+                <input className={`${classes['form-input']}`}
                   type="radio"
                   value={answer.title}
                   name={question.question}

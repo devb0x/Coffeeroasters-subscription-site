@@ -6,15 +6,12 @@ import logo from '../../assets/shared/desktop/logo.svg'
 import hamburger from '../../assets/shared/mobile/icon-hamburger.svg'
 import close from '../../assets/shared/mobile/icon-close.svg'
 import classes from "./Navbar.module.css"
-import {Link, useLocation, useParams} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 const Navbar = () => {
   const {height, width} = useWindowDimensions()
   const [isOpen, setIsOpen] = useState(false)
   const [pathname, setPathname] = useState(window.location.pathname)
-
-  // console.log('rerender')
-  // console.log(pathname)
 
   useEffect(() => {
     setIsOpen(false)
@@ -25,9 +22,6 @@ const Navbar = () => {
   const displayNavMobileHandler = () => {
     setIsOpen(!isOpen)
   }
-
-  // console.log(width)
-  // console.log(height)
 
   return (
     <nav className={classes.navbar}>
@@ -53,13 +47,31 @@ const Navbar = () => {
           <nav className={`${classes['nav-mobile']}`}>
             <ul>
               <li>
-                <Link to="/homepage" className={classes.link} >Home</Link>
+                <Link
+                  to="/homepage"
+                  className={classes.link}
+                  onClick={displayNavMobileHandler}
+                >
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/about-us" className={classes.link} >About Us</Link>
+                <Link
+                  to="/about-us"
+                  className={classes.link}
+                  onClick={displayNavMobileHandler}
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link to="/subscribe" className={classes.link} >Create Your Plan</Link>
+                <Link
+                  to="/subscribe"
+                  className={classes.link}
+                  onClick={displayNavMobileHandler}
+                >
+                  Create Your Plan
+                </Link>
               </li>
             </ul>
           </nav>

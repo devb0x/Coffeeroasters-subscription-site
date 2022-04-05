@@ -17,6 +17,7 @@
 
 .nav-mobile {
   position: absolute;
+  z-index: 99999;
   top: 6rem;
   display: flex;
   margin: -1rem auto;
@@ -25,7 +26,6 @@
   height: 65vh;
   font-size: 1.5rem;
   width: 90%;
-
   background: linear-gradient(0deg, rgba(254, 252, 247, 0.504981) 0%, #FEFCF7 55.94%);
 }
 
