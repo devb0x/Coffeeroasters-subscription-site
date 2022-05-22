@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react'
 
-import Dropdown from "../../../UI/Dropdown/Dropdown"
-import Summary from "../../Summary/Summary"
-import Modal from "../../../UI/Modal/Modal"
+import Dropdown from "../../UI/Dropdown/Dropdown"
+import Summary from "../Summary/Summary"
+import Modal from "../../UI/Modal/Modal"
 
 import classes from './SubscribeForm.module.css'
 
@@ -220,7 +220,7 @@ const SubscribeForm = () => {
     if (count >= questions.length) {
       setBtnDisabled(false)
     }
-  }, [count])
+  }, [questions.length, count])
 
   return (
     <section className={`${classes['section']}`}>

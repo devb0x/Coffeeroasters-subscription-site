@@ -9,7 +9,7 @@ import classes from "./Navbar.module.css"
 import {Link} from "react-router-dom"
 
 const Navbar = () => {
-  const {height, width} = useWindowDimensions()
+  const {width} = useWindowDimensions()
   const [isOpen, setIsOpen] = useState(false)
   const [pathname, setPathname] = useState(window.location.pathname)
 
