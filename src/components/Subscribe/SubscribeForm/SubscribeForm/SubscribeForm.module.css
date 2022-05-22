@@ -1,4 +1,4 @@
-input {
+.form-input {
   display: none;
 }
 
@@ -9,14 +9,10 @@ input {
 .section {
   width: 328px;
   margin: auto;
-
-
 }
 
 .form {
-  /*width: 328px;*/
   margin: auto;
-
 }
 
 input[type=radio]:checked + label {
@@ -24,7 +20,6 @@ input[type=radio]:checked + label {
   background-color: var(--darkCyan);
   border-radius: 8px;
 }
-
 
 .question-title {
   font-family: var(--fraunces);
@@ -36,24 +31,18 @@ input[type=radio]:checked + label {
   margin: 0;
 }
 
-
 .title {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
 .answers-wrapper {
-  /*width: 328px;*/
   display: flex;
-  /*margin: auto auto 1rem;*/
   margin-bottom: 1rem;
   flex-direction: column;
   cursor: pointer;
   background-color: var(--lightGrey);
-  /*border-radius: 8px;*/
   color: var(--veryDarkBlue);
-  /*padding: 1.5rem;*/
-  /* le padding empeche de selectionné selon ou on clic*/
 }
 
 .answers-wrapper:hover > * {
@@ -66,22 +55,15 @@ input[type=radio]:checked + label {
   font-size: 1.5rem;
   font-weight: 900;
   line-height: 2rem;
-
-  margin: 1.5rem 1.5rem 0;
+  margin: 2rem 1.5rem 0;
 }
 
 .answer-text {
   font-family: var(--barlow);
   font-size: 1rem;
   line-height: 26px;
-  margin: 0 1.5rem 1.5rem 1.5rem;
+  margin: 1.5rem;
   padding: 1rem 0;
-}
-
-.arrow {
-  color: red;
-  padding: .5rem;
-  margin-left: 5rem;
 }
 
 .answer-label {
@@ -108,6 +90,10 @@ input[type=radio]:checked + label {
 
 .btn:hover {
   background: var(--cyan);
+}
+
+.btn:disabled {
+  background-color: #E2DEDB;
 }
 
 @media screen and (min-width: 768px) {
@@ -183,6 +169,4 @@ input[type=radio]:checked + label {
 }
 
 
-.btn:disabled {
-  outline: 5px solid red;
-}
+

@@ -22,6 +22,12 @@
   cursor: pointer;
   width: 85%;
   text-align: left;
+  opacity: 1;
+  transition: all .3s ease;
+}
+
+.closed {
+  opacity: .5;
 }
 
 .chevron {
@@ -30,8 +36,27 @@
   width: 100%;
 }
 
+.dropdown-btn__icon {
+  transition: all .3s ease;
+}
+
 .dropdown-btn__icon.rotate {
   transform: rotate(180deg);
+}
+
+.container.hidden {
+  height: 0;
+  opacity: 0;
+  transition: all ease;
+  transform: translateY(-15%);
+  pointer-events: none;
+}
+
+.container {
+  transition: all .3s ease-in;
+  opacity: 1;
+  height: auto;
+  transform: translateY(0);
 }
 
 @media screen and (min-width: 768px) {
