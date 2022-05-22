@@ -1,14 +1,10 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment} from 'react'
 
 import classes from './Modal.module.css'
 import useWindowDimensions from "../../../Utils/window"
 
 const Modal = (props) => {
-  const {height, width} = useWindowDimensions()
-
-  const closeModal = () => {
-    console.log('close modal')
-  }
+  const {width} = useWindowDimensions()
 
   return (
     <div>

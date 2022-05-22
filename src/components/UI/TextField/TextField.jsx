@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import classes from "../../Subscribe/SubscribeForm/SubscribeForm/SubscribeForm.module.css"
+import classes from "../../Subscribe/SubscribeForm/SubscribeForm.module.css"
 
 
 const TextField = ({type= 'text', id, label, value, onchange = () => {} }) => {

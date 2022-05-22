@@ -34,21 +34,31 @@ function Footer() {
       <div className={`${classes['links-two']}`}>
         <ul className={`${classes['links-two__list']}`}>
           <li>
-            <a href="/"
+            <a
+              href="https://www.facebook.com/"
+              target="_blank" rel="noreferrer"
               className={ `${classes['link-img']} ${classes['fb']}` }
-            />
+            >
+              <p aria-hidden="true">facebook</p>
+            </a>
           </li>
           <li>
             <a
-              href="/"
+              href="https://twitter.com"
+              target="_blank" rel="noreferrer"
               className={ `${classes['link-img']} ${classes['twitter']}` }
-            />
+            >
+              <p aria-hidden="true">twitter</p>
+            </a>
           </li>
           <li>
             <a
-              href="/"
+              href="https://instagram.com"
+              target="_blank" rel="noreferrer"
               className={ `${classes['link-img']} ${classes['instagram']}` }
-            />
+            >
+              <p aria-hidden="true">instagram</p>
+            </a>
           </li>
         </ul>
       </div>

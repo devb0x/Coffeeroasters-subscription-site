@@ -1,9 +1,9 @@
 import React from 'react';
 
 import classes from './Button.module.css'
-import {Link, NavLink} from "react-router-dom"
+import {Link} from "react-router-dom"
 
-function Button(props) {
+function Button() {
   return (
     <Link
       to={"/subscribe"}
