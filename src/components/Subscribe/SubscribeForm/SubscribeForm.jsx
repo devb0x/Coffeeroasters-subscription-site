@@ -196,8 +196,6 @@ const SubscribeForm = () => {
       if (question.isAnswered === true) {
         scopedCount++
         return setCount(scopedCount)
-      } else {
-        console.log('not answered')
       }
       return scopedCount
     })
