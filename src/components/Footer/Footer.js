@@ -39,7 +39,7 @@ function Footer() {
               target="_blank" rel="noreferrer"
               className={ `${classes['link-img']} ${classes['fb']}` }
             >
-              <p aria-hidden="true">facebook</p>
+              <p className={`${classes['visually-hidden']}`}>facebook</p>
             </a>
           </li>
           <li>
@@ -48,7 +48,7 @@ function Footer() {
               target="_blank" rel="noreferrer"
               className={ `${classes['link-img']} ${classes['twitter']}` }
             >
-              <p aria-hidden="true">twitter</p>
+              <p className={`${classes['visually-hidden']}`}>twitter</p>
             </a>
           </li>
           <li>
@@ -57,7 +57,7 @@ function Footer() {
               target="_blank" rel="noreferrer"
               className={ `${classes['link-img']} ${classes['instagram']}` }
             >
-              <p aria-hidden="true">instagram</p>
+              <p className={`${classes['visually-hidden']}`}>instagram</p>
             </a>
           </li>
         </ul>
